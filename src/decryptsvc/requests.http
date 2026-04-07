@@ -1,0 +1,46 @@
+POST http://localhost:3001/decrypt
+content-type: application/json
+
+{ 
+  "family": "Jaff",
+  "description": "Rakhni 복호화 프로그램은 Jaff 랜섬웨어로 암호화된 파일을 복구할 수 있습니다.",
+  "tool": "https://media.kaspersky.com/utilities/VirusUtilities/EN/rakhnidecryptor.zip"
+}
+
+### Approve an existing decrypt
+PATCH http://localhost:3001/decrypt/16
+content-type: application/json  
+
+{
+  "approved": true
+}
+
+### Get an estimate for an existing ransomware
+GET http://localhost:3001/decrypt?family=BlackCat&description=Wannacry&tool=1234567890
+
+### Get all decrypts by userId
+GET http://localhost:3001/decrypt/user/18
+
+### Get all decrypts(승인X)
+GET http://localhost:3001/decrypt/unapproved
+
+### Delete unapproved decrypts(미승인 항목 삭제)
+DELETE http://localhost:3001/decrypt/unapproved/30
+
+### Get approved all decrypts(승인O)
+GET http://localhost:3001/decrypt/approved
+
+### Get approved decrypt by id(승인O)
+GET http://localhost:3001/decrypt/approved/30
+
+### Delete decrypt by id
+DELETE http://localhost:3001/decrypt/approved/46
+
+### Update decrypt by id
+PATCH http://localhost:3001/decrypt/approved/12
+content-type: application/json
+
+{
+  "description": "Rakhni 복호화 프로그램은 Jaff 랜섬웨어로 암호화된 파일을 복구할 수 있습니다.",
+  "tool": "https://media.kaspersky.com/utilities/VirusUtilities/EN/rakhnidecryptor.zip"
+}

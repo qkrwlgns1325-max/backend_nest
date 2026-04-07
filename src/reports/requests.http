@@ -1,0 +1,36 @@
+POST http://localhost:3001/reports
+content-type: application/json
+
+{ 
+  "year": 2024,
+  "family": "BlackBasta",
+  "hash": "3a24e889elrof9800262o309w5d4x77940cd5cdd0ca881c14c2a9aa1de5c89",
+  "type": "EXE",
+  "region": "US",
+  "lng": 61.15571557,
+  "lat": 62.16011601,
+  "ip": "192.168.3.40"
+}
+
+### Approve an existing report
+PATCH http://localhost:3001/reports/26
+content-type: application/json  
+
+{
+  "approved": true
+}
+
+### Get an estimate for an existing ransomware
+GET http://localhost:3001/reports?year=2024&family=BlackBasta&type=EXE&hash=3a24e889elrof9800262o309w5d4x77940cd5cdd0ca881c14c2a9aa1de5c89&region=US&lng=60.15571557&lat=61.16011601&ip=192.168.3.40&
+
+### Get all reports by userId
+GET http://localhost:3001/reports/user/17
+
+### Get all reports(승인X)
+### GET http://localhost:3001/reports/all
+
+### Get approved all reports(승인O)
+GET http://localhost:3001/reports/approved
+
+### Get approved report by id(승인O)
+GET http://localhost:3001/reports/approved/18

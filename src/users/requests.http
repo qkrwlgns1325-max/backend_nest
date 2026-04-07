@@ -1,0 +1,65 @@
+### Create a New User
+POST http://localhost:3001/auth/signup
+content-type: application/json
+
+{
+  "email": "mrpark31@test.com",
+  "password": "1234"
+}
+
+### Create a New User - Postgresql
+## POST https://blooming-dusk-99692-3b4fa49d13b8.herokuapp.com/auth/signup
+## content-type: application/json
+
+## {
+##  "email": "testing51@test.com",
+##  "password": "1234"
+## }
+
+### Sign in as an existing user
+POST http://localhost:3001/auth/signin
+content-type: application/json
+
+{
+  "email": "mrpark31@test.com",
+  "password": "1234"
+}
+
+### Sign in as an existing user - Postgresql
+## POST https://blooming-dusk-99692-3b4fa49d13b8.herokuapp.com/auth/signin
+## content-type: application/json
+
+## {
+##  "email": "testing51@test.com",
+##  "password": "1234"
+## }
+
+
+### Get the currently signed in user
+GET http://localhost:3001/auth/whoami
+
+### Get the currently signed in user - Postgresql
+## GET https://blooming-dusk-99692-3b4fa49d13b8.herokuapp.com/auth/whoami
+
+
+### Sign out
+POST http://localhost:3001/auth/signout
+
+### Find a particular user with a given ID ###
+GET http://localhost:3001/auth/2
+
+### Find all users with a given email ###
+GET http://localhost:3001/auth/?email=ziggmond@test.com
+
+### Delete a user with a given ID ###
+DELETE http://localhost:3001/auth/1
+
+### Patch a user with a given ID ###
+PATCH http://localhost:3001/auth/2
+content-type: application/json
+
+{
+  "email": "aaaaaaaa@test.com",
+  "password": "123456"
+}
+
